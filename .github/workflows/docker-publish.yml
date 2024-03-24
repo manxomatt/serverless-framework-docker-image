@@ -15,11 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: docker login
-      env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_TOKEN}}
-      run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+      with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      #env:
+      #  DOCKER_USER: ${{secrets.DOCKER_USER}}
+      #  DOCKER_PASSWORD: ${{secrets.DOCKER_TOKEN}}
+      #run: |
+      #  docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag manxomatt/serverless-framework:v1.0
       
