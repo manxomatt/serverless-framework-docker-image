@@ -34,5 +34,5 @@ RUN apk --no-cache add \
     #&& rm glibc-bin-${GLIBC_VER}.apk \
     && rm -rf /var/cache/apk/*
 
-RUN aws --version
-RUN sls --version
+RUN /usr/local/bin/aws --version
+RUN /usr/local/bin/sls --version
