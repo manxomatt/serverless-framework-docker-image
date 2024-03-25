@@ -4,7 +4,9 @@ FROM node:14.16-alpine
 RUN npm install -g serverless@2.60.0
 
 ENV GLIBC_VER=2.31-r0
+ENV APK_CACHE_DIR=/var/cache/apk
 
+RUN mkdir -p $APK_CACHE_DIR
 # install glibc compatibility for alpine
 # and install AWS CLI 2
 RUN apk --no-cache add \
