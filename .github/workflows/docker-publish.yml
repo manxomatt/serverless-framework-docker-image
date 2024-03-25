@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: user/app:latest
+        tags: manxomatt/serverless-framework:v1.0
   #build:  
   # runs-on: ubuntu-latest
   # steps :
